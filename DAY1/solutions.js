@@ -178,3 +178,84 @@ console.log(printNumbers(15));
     console.log(countDigits(12345));
     console.log(countDigits(0));
     console.log(countDigits(-9876));
+
+
+    // 13. Reverse a number.
+
+    function reverseNumber(num) {
+        let reversed = 0;
+        let sign = num < 0 ? -1 : 1;
+        num = Math.abs(num);
+        while (num > 0) {
+            reversed = (reversed * 10) + (num % 10);
+            num = Math.floor(num / 10);
+        }
+        return sign * reversed;
+    }
+    
+    console.log(reverseNumber(12345));
+    console.log(reverseNumber(-6789));
+    console.log(reverseNumber(0));
+
+    // 14. Check whether a number is palindrome.
+
+    function isPalindrome(num) {
+        const reversed = reverseNumber(num);
+        return reversed === num;
+    }
+
+    console.log(isPalindrome(12321));
+    console.log(isPalindrome(-12321));
+    console.log(isPalindrome(12345));
+
+    // 15. Build a simple calculator using switch.
+
+function simpleCalculator(num1, num2, operator) {
+    switch (operator) {
+        case '+':
+            return num1 + num2;
+        case '-':
+            return num1 - num2;
+        case '*':
+            return num1 * num2;
+        case '/':
+            if (num2 === 0) return "Cannot divide by zero";
+            return num1 / num2;
+        default:
+            return "Invalid operator";
+    }
+
+}
+
+console.log(simpleCalculator(10, 5, '+'));
+console.log(simpleCalculator(10, 5, '-'));
+console.log(simpleCalculator(10, 5, '*'));
+console.log(simpleCalculator(10, 5, '/'));
+console.log(simpleCalculator(10, 0, '/'));
+console.log(simpleCalculator(10, 5, '^'));
+
+
+// 16. Determine grade from marks.
+
+function determineGrade(marks) {
+    if (marks < 0 || marks > 100) {
+        return "Invalid marks";
+    } else if (marks >= 90) {
+        return "A";
+    } else if (marks >= 80) {
+        return "B";
+    } else if (marks >= 70) {
+        return "C";
+    } else if (marks >= 60) {
+        return "D";
+    } else {
+        return "F";
+    }
+}
+
+console.log(determineGrade(95));
+console.log(determineGrade(85));
+console.log(determineGrade(75));
+console.log(determineGrade(65));
+console.log(determineGrade(55));
+
